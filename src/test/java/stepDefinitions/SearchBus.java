@@ -6,6 +6,8 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -88,7 +90,8 @@ public class SearchBus {
 				if(monthList.indexOf(calMonth)+1 == expMonth && expYear == calYear)
 				{
 					System.out.println("Inside If to call selectDate method");
-					selectDate(expDate);
+					Date obj=new Date(driver);
+					obj.selectDate(expDate);
 					dateNotFound=false;
 				}   
 				else if(monthList.indexOf(calMonth)+1 < expMonth && expYear==calYear || expYear>calYear)
@@ -99,15 +102,10 @@ public class SearchBus {
 				{
 					calendar.findElement(By.xpath("//*[@id='rb-calendar_onward_cal']//button[.='<']")).click();
 				}
-			}							
-		WebElement search=driver.findElement(By.id("search_button"));
+			}
+			driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		WebElement search=driver.findElement(By.xpath("//button[@class='sc-dxgOiQ iztAdt']"));
 		driver.switchTo().frame(search);
 		search.click();
-		
-		
+		}
 	}
-	
-
-	}
-	
-

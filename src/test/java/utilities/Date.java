@@ -8,6 +8,12 @@ import org.openqa.selenium.WebElement;
 
 public class Date {
 	WebDriver driver;
+	
+	public Date(WebDriver driver) {
+		super();
+		this.driver = driver;
+	}
+
 	public void selectDate(String date)
 	{
 		System.out.println("Inside selectDate Method");
