@@ -1,5 +1,4 @@
 package stepDefinitions;
-
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
@@ -7,7 +6,6 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,14 +13,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
-
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
+import utilities.Date;
 public class SearchBus {
-	
-	
 	WebDriver driver;
 	List<String> monthList = Arrays.asList("Jan","Feb","Mar","Apr","May","Jun","July","Aug","Sep","Oct","Nov","Dec");
 	String expDate = null;
@@ -70,65 +65,49 @@ public class SearchBus {
 	}
 	@Then("I want to give the date")
 	public void i_want_to_give_the_date()throws InterruptedException {
-	    WebElement calendar = driver.findElement(By.xpath("//span[text()='Date']"));
-	    calendar.click();
-	    expDate="14";
-	    expMonth = 5;
-	    expYear = 2024;
-		dateNotFound = true;
 		
-		while(dateNotFound)
-		{
-			WebElement monthYearEle = driver.findElement(By.xpath("(//div[@class='DayNavigator__IconBlock-qj8jdz-2 iZpveD'])[2]"));
-			String monthYear= monthYearEle.getAttribute("innerHTML");
-			System.out.println(monthYear);
-			String[] s = monthYear.split(" ");
-			String calMonth = s[0];
-			String[] tempYear = s[1].split("<");
+		 WebElement calendar = driver.findElement(By.xpath("//span[text()='Date']"));
+		    calendar.click();
+		    expDate="14";
+		    expMonth = 5;
+		    expYear = 2024;
+			dateNotFound = true;
 			
-			
-			int calYear=Integer.parseInt(tempYear[0]);
-			System.out.println(calMonth);
-			System.out.println(calYear);
-			
-			if(monthList.indexOf(calMonth)+1 == expMonth && expYear == calYear)
+			while(dateNotFound)
 			{
-				System.out.println("Inside If to call selectDate method");
-				selectDate(expDate);
-				dateNotFound=false;
-			}
-			else if(monthList.indexOf(calMonth)+1 < expMonth && expYear==calYear || expYear>calYear)
-			{
-				calendar.findElement(By.xpath("//div[@class='DayNavigator__CalendarHeader-qj8jdz-1 fxvMrr']//div[3]//*[name()='svg']")).click();
-			}
-			else if(monthList.indexOf(calMonth)+1 > expMonth && expYear==calYear||expYear<calYear)
-			{
-				calendar.findElement(By.xpath("//*[@id='rb-calendar_onward_cal']//button[.='<']")).click();
-			}
-		}
+				WebElement monthYearEle = driver.findElement(By.xpath("(//div[@class='DayNavigator__IconBlock-qj8jdz-2 iZpveD'])[2]"));
+				String monthYear= monthYearEle.getAttribute("innerHTML");
+				System.out.println(monthYear);
+				String[] s = monthYear.split(" ");
+				String calMonth = s[0];
+				String[] tempYear = s[1].split("<");
+				int calYear=Integer.parseInt(tempYear[0]);
+				System.out.println(calMonth);
+				System.out.println(calYear);
+				
+				if(monthList.indexOf(calMonth)+1 == expMonth && expYear == calYear)
+				{
+					System.out.println("Inside If to call selectDate method");
+					selectDate(expDate);
+					dateNotFound=false;
+				}   
+				else if(monthList.indexOf(calMonth)+1 < expMonth && expYear==calYear || expYear>calYear)
+				{
+					calendar.findElement(By.xpath("//div[@class='DayNavigator__CalendarHeader-qj8jdz-1 fxvMrr']//div[3]//*[name()='svg']")).click();
+				}
+				else if(monthList.indexOf(calMonth)+1 > expMonth && expYear==calYear||expYear<calYear)
+				{
+					calendar.findElement(By.xpath("//*[@id='rb-calendar_onward_cal']//button[.='<']")).click();
+				}
+			}							
+		WebElement search=driver.findElement(By.id("search_button"));
+		driver.switchTo().frame(search);
+		search.click();
 		
 		
-		
-	}
-
-	public void selectDate(String date)
-	{
-		System.out.println("Inside selectDate Method");
-		System.out.println(date);
-		WebElement datePicker = driver.findElement(By.xpath("//div[@id='onwardCal']/div[1]/div[2]/div[1]/div[1]/div[3]/div[3]/span[1]/div[5]/span[1]"));
-		datePicker.click();
-		List<WebElement> dates = datePicker.findElements(By.tagName("td"));
-		System.out.println(dates.size());
-		for(WebElement temp:dates)
-		{
-			if(temp.getText().equals(date))
-			{
-				System.out.println("Inside if to setdate");
-				temp.click();
-				break;
-			}
-		}
-		driver.findElement(By.id("search_button")).click();
 	}
 	
-}
+
+	}
+	
+
