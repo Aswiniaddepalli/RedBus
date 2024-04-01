@@ -37,7 +37,12 @@ public class RedBus_PF {
 	    	date_6.click();
 	    }
 	    public void search() {
+	    	
 	    	search.click();
 	    }
+	  public void excel(String from,String to) {
+		  
+	  }
+	    
 	    
 }

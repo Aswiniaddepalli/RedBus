@@ -3,13 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="runner.RunnerClass">
+      <class name="stepDefinitions.ExcelSheetData">
         <methods>
-          <include name="setUpClass"/>
-          <include name="runScenario" invocation-numbers="4"/>
-          <include name="tearDownClass"/>
+          <include name="before1"/>
+          <include name="pickup" invocation-numbers="0"/>
         </methods>
-      </class> <!-- runner.RunnerClass -->
+      </class> <!-- stepDefinitions.ExcelSheetData -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

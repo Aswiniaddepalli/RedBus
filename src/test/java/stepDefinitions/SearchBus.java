@@ -1,6 +1,8 @@
 package stepDefinitions;
 import java.awt.AWTException;
 import pages.RedBus_PF;
+import pages.Routes_PF;
+
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.time.Duration;
@@ -17,6 +19,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -98,10 +101,12 @@ Thread.sleep(3000);
 	public void i_click_on_tsrtc_buses() {
 //	     Write code here that turns the phrase above into concrete actions
 //	    throw new io.cucumber.java.PendingException();
-		 WebElement modify=driver.findElement(By.xpath("//div[@class='onward-modify-btn g-button clearfix fl']"));
-	        WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		 webDriverWait.until(ExpectedConditions.visibilityOf(modify));
-		 driver.findElement(By.xpath("//div[@id='root']/div/div[2]/div/div[2]/div[2]/div[1]/div/div[2]/div/div[4]/div[2]")).click();
+//		 WebElement modify=driver.findElement(By.xpath("//div[@class='onward-modify-btn g-button clearfix fl']"));
+//	        WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//		 webDriverWait.until(ExpectedConditions.visibilityOf(modify));
+//		 driver.findElement(By.xpath("//div[@id='root']/div/div[2]/div/div[2]/div[2]/div[1]/div/div[2]/div/div[4]/div[2]")).click();
+		Routes_PF ob=new Routes_PF(driver);
+		ob.tsrtcmethod();
 	}
 
 	@Then("I am able to see the list of buses")
@@ -118,20 +123,23 @@ Thread.sleep(3000);
 	public void i_want_to_click_on_apsrtc_buses() {
 	    // Write code here that turns the phrase above into concrete actions
 	    //throw new io.cucumber.java.PendingException();
-		 WebElement modify=driver.findElement(By.xpath("//div[@class='onward-modify-btn g-button clearfix fl']"));
-	        WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(20));
-		 webDriverWait.until(ExpectedConditions.visibilityOf(modify));
-		driver.findElement(By.xpath("(//div[text()='View Buses'])[2]")).click();
+//		 WebElement modify=driver.findElement(By.xpath("//div[@class='onward-modify-btn g-button clearfix fl']"));
+//	        WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(20));
+//		 webDriverWait.until(ExpectedConditions.visibilityOf(modify));
+//		driver.findElement(By.xpath("(//div[text()='View Buses'])[2]")).click();
+		Routes_PF ob=new Routes_PF(driver);
+		ob.apsrtcmstod();
 	}
 	@When("I want click on filter")
 	public void i_want_click_on_filter() {
 	    // Write code here that turns the phrase above into concrete actions
-	    //throw new io.cucumber.java.PendingException();
-		WebElement modify=driver.findElement(By.xpath("//div[@class='onward-modify-btn g-button clearfix fl']"));
-        WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
-	 webDriverWait.until(ExpectedConditions.visibilityOf(modify));
-		driver.findElement(By.xpath("//div[@id='filter-block']/div/div[2]/ul[2]/li/label[@class='custom-checkbox' and @for='dtBefore 6 am']")).click();
-		
+//	    //throw new io.cucumber.java.PendingException();
+//		WebElement modify=driver.findElement(By.xpath("//div[@class='onward-modify-btn g-button clearfix fl']"));
+//        WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//	 webDriverWait.until(ExpectedConditions.visibilityOf(modify));
+//		driver.findElement(By.xpath("//div[@id='filter-block']/div/div[2]/ul[2]/li/label[@class='custom-checkbox' and @for='dtBefore 6 am']")).click();
+		Routes_PF ob=new Routes_PF(driver);
+		ob.checkBox();
 		
 	}
 
@@ -140,8 +148,10 @@ Thread.sleep(3000);
 	    // Write code here that turns the phrase above into concrete actions
 	   // throw new io.cucumber.java.PendingException();
 //		JavascriptExecutor javascript=(JavascriptExecutor) driver;
-//		javascript.executeScript("window.scrollBy(0,200)");	
+//		javascript.executeScript("window.scrollBy(0,200)");
+		String Expected="https://www.redbus.in/bus-tickets/hyderabad-to-vijayawada?fromCityName=Hyderabad&fromCityId=124&srcCountry=IND&toCityName=Vijayawada&toCityId=134&destCountry=IND&onward=7-Apr-2024&opId=0&busType=Any";
 		String actual=driver.getCurrentUrl();
 		System.out.println(actual);
+		Assert.assertEquals(actual, Expected);
 	}
 	}
