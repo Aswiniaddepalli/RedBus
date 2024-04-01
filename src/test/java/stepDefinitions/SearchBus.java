@@ -40,37 +40,42 @@ public class SearchBus {
 	public void i_want_to_give_two_cities_names() throws AWTException, InterruptedException {
 	    // Write code here that turns the phrase above into concrete actions
 	    //throw new io.cucumber.java.PendingException();
-//		RedBus_PF obj=new RedBus_PF(driver);
-//		obj.bordingPoint("Hyderabad");
-		WebElement from=driver.findElement(By.id("src"));
-		from.sendKeys("Hyderabad");
+		RedBus_PF obj=new RedBus_PF(driver);
+		obj.bordingPoint("Hyderabad");
+//		WebElement from=driver.findElement(By.id("src"));
+//		from.sendKeys("Hyderabad");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 		//Thread.sleep(3000);
-		from.click();
-		 Robot robo=new Robot();
-	        robo.keyPress(KeyEvent.VK_ENTER);
-	        robo.keyRelease(KeyEvent.VK_ENTER);
-		
-WebElement dest1 = driver.findElement(By.id("dest"));
-dest1.sendKeys("Vijayawada");
+		//from.click();
+//		 Robot robo=new Robot();
+//	        robo.keyPress(KeyEvent.VK_ENTER);
+//	        robo.keyRelease(KeyEvent.VK_ENTER);
+		obj.destination("Vijayawada");
+//WebElement dest1 = driver.findElement(By.id("dest"));
+//dest1.sendKeys("Vijayawada");
 //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 Thread.sleep(3000);
-dest1.click();
-robo.keyPress(KeyEvent.VK_ENTER);
-robo.keyRelease(KeyEvent.VK_ENTER);
+//dest1.click();
+//robo.keyPress(KeyEvent.VK_ENTER);
+//robo.keyRelease(KeyEvent.VK_ENTER);
 	}
 	@Then("I want to give the date")
 	public void i_want_to_give_the_date()throws InterruptedException {
-		WebElement nav =driver.findElement(By.xpath("(//div[@class='DayNavigator__IconBlock-qj8jdz-2 iZpveD']/following-sibling::div)[2]"));
-		nav.click();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
+//		WebElement nav =driver.findElement(By.xpath("(//div[@class='DayNavigator__IconBlock-qj8jdz-2 iZpveD']/following-sibling::div)[2]"));
+//		nav.click();
+		RedBus_PF obj=new RedBus_PF(driver);
+		obj.Day();
+		//obj.datenav();
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
 //        try {
 //            Thread.sleep(2000);
 //        }catch (Exception e){}
-        WebElement  date_31 = driver.findElement(By.xpath("//span[text()='6']"));
-        date_31.click();
-   	 WebElement  search_buses_button = driver.findElement(By.xpath("//button[text()='SEARCH BUSES']"));
-     search_buses_button.click();
+        obj.date_pick();
+//        WebElement  date_31 = driver.findElement(By.xpath("//span[text()='6']"));
+//        date_31.click();
+//   	 WebElement  search_buses_button = driver.findElement(By.xpath("//button[text()='SEARCH BUSES']"));
+//     search_buses_button.click();
+        obj.search();
          
 		}
 	@Then("I want to get the different filters names")
@@ -123,7 +128,7 @@ robo.keyRelease(KeyEvent.VK_ENTER);
 	    // Write code here that turns the phrase above into concrete actions
 	    //throw new io.cucumber.java.PendingException();
 		WebElement modify=driver.findElement(By.xpath("//div[@class='onward-modify-btn g-button clearfix fl']"));
-        WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	 webDriverWait.until(ExpectedConditions.visibilityOf(modify));
 		driver.findElement(By.xpath("//div[@id='filter-block']/div/div[2]/ul[2]/li/label[@class='custom-checkbox' and @for='dtBefore 6 am']")).click();
 		

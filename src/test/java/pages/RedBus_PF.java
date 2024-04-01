@@ -14,26 +14,30 @@ public class RedBus_PF {
 		}
 		@FindBy(id="src") WebElement from;
 	    @FindBy(id="dest") WebElement to;
-//	    WebElement nav =driver.findElement(By.xpath("(//div[@class='DayNavigator__IconBlock-qj8jdz-2 iZpveD']/following-sibling::div)[2]"));
-//		nav.click();
-	    @FindBy(xpath="//div[@class='DayNavigator__IconBlock-qj8jdz-2 iZpveD']/following-sibling::div)[2]") WebElement nav;
-	    //WebElement  date_31 = driver.findElement(By.xpath("//span[text()='6']"));
-	    @FindBy(xpath="//span[text()='6']") WebElement date_6;
+	    @FindBy(id="onwardCal") WebElement day;
+	   // @FindBy(xpath="//div[@class='DayNavigator__IconBlock-qj8jdz-2 iZpveD']/following-sibling::div[2]") WebElement nav;
+	    @FindBy(xpath="//span[text()='7']") WebElement date_6;
+	    @FindBy(xpath="//button[text()='SEARCH BUSES']") WebElement search;
 	    public void bordingPoint(String string) {
 	    	from.sendKeys(string);
-	    	from.click();
+	    	
 	    }
-	    public void destination(String string) {
-	    	to.click();
+	    public void destination(String string) throws InterruptedException {
+	    	Thread.sleep(3000);
 	    	to.sendKeys(string);
-	    	
-	    	
+	    	 	
 	    }
-	    public void datenav() {
-	    	nav.click();
+	    public void Day() {
+	    	day.click();
 	    }
+//	    public void datenav() {
+//	    	nav.click();
+//	    }
 	    public void date_pick() {
 	    	date_6.click();
+	    }
+	    public void search() {
+	    	search.click();
 	    }
 	    
 }
