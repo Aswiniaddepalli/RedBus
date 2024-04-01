@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>5/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Mar 28 14:47:01 IST 2024</td>
+<td>Started on:</td><td>Mon Apr 01 09:57:39 IST 2024</td>
 </tr>
-<tr><td>Total time:</td><td>11 seconds (11927 ms)</td>
+<tr><td>Total time:</td><td>96 seconds (96242 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,8 +67,8 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td><b>Attribute(s)</b></td>
 <td width="30%"><b>Exception</b></td>
@@ -76,66 +76,29 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
+<td title='runner.RunnerClass.runScenario()'><b>runScenario</b><br>Test class: runner.RunnerClass<br>Test method: Runs Cucumber Scenarios<br>Parameters: "giving of filter", "Search for bus routes"</td>
+<td></td>
+<td>22</td>
+<td>runner.RunnerClass@221a3fa4</td></tr>
+<tr>
+<td title='runner.RunnerClass.runScenario()'><b>runScenario</b><br>Test class: runner.RunnerClass<br>Test method: Runs Cucumber Scenarios<br>Parameters: "list of different types of filters", "Search for bus routes"</td>
+<td></td>
+<td>19</td>
+<td>runner.RunnerClass@221a3fa4</td></tr>
+<tr>
+<td title='runner.RunnerClass.runScenario()'><b>runScenario</b><br>Test class: runner.RunnerClass<br>Test method: Runs Cucumber Scenarios<br>Parameters: "checking the TSRTC Buses", "Search for bus routes"</td>
+<td></td>
+<td>20</td>
+<td>runner.RunnerClass@221a3fa4</td></tr>
+<tr>
 <td title='runner.RunnerClass.runScenario()'><b>runScenario</b><br>Test class: runner.RunnerClass<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Search for a route between two cities", "Search for bus routes"</td>
-<td><div><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
-  (Session info: chrome=123.0.6312.86)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
-Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.9&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [48252d7cd9a7d337700e9ff766b60c8d, findChildElements {using=tag name, id=f.166BDB94D616751948240569184BBD65.d.33CAF4724E69D60FD564C4739FADD44C.e.77, value=td}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 123.0.6312.86, chrome: {chromedriverVersion: 123.0.6312.86 (9b72c47a0536..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50902}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50902/devtoo..., se:cdpVersion: 123.0.6312.86, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 48252d7cd9a7d337700e9ff766b60c8d
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElements(ElementLocation.java:182)
-	at org.openqa.selenium.remote.ElementLocation.findElements(ElementLocation.java:103)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:369)
-	at org.openqa.selenium.remote.RemoteWebElement.findElements(RemoteWebElement.java:203)
-	at utilities.Date.selectDate(Date.java:23)
-	at stepDefinitions.SearchBus.i_want_to_give_the_date(SearchBus.java:94)
-	at ✽.I want to give the date(file:///C:/Users/ADASWINI/java2024/RedBus/features/SearchBusRoutes.feature:8)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1634411546", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1634411546'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
-  (Session info: chrome=123.0.6312.86)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
-Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.9&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [48252d7cd9a7d337700e9ff766b60c8d, findChildElements {using=tag name, id=f.166BDB94D616751948240569184BBD65.d.33CAF4724E69D60FD564C4739FADD44C.e.77, value=td}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 123.0.6312.86, chrome: {chromedriverVersion: 123.0.6312.86 (9b72c47a0536..., userDataDir: C:\Windows\SystemTemp\scope...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50902}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50902/devtoo..., se:cdpVersion: 123.0.6312.86, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 48252d7cd9a7d337700e9ff766b60c8d
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElements(ElementLocation.java:182)
-	at org.openqa.selenium.remote.ElementLocation.findElements(ElementLocation.java:103)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:369)
-	at org.openqa.selenium.remote.RemoteWebElement.findElements(RemoteWebElement.java:203)
-	at utilities.Date.selectDate(Date.java:23)
-	at stepDefinitions.SearchBus.i_want_to_give_the_date(SearchBus.java:94)
-	at ✽.I want to give the date(file:///C:/Users/ADASWINI/java2024/RedBus/features/SearchBusRoutes.feature:8)
-</pre></div></td>
-<td>11</td>
+<td></td>
+<td>12</td>
+<td>runner.RunnerClass@221a3fa4</td></tr>
+<tr>
+<td title='runner.RunnerClass.runScenario()'><b>runScenario</b><br>Test class: runner.RunnerClass<br>Test method: Runs Cucumber Scenarios<br>Parameters: "cheking the APSRTC buses", "Search for bus routes"</td>
+<td></td>
+<td>21</td>
 <td>runner.RunnerClass@221a3fa4</td></tr>
 </table><p>
 </body>
